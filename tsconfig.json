@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "lib": ["dom", "esnext", "webworker"],
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "types": ["svelte", "node"]
+  },
+  "extends": "./node_modules/@tsconfig/svelte/tsconfig.json",
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/*", "public/*"]
+}
