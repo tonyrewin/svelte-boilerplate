@@ -1,7 +1,8 @@
 # What's used
 
-- Svelte
-- PostCSS
-- Prettier
-- esbuild
+- typescript
+- svelte
+- stylelint
+- prettier
 - eslint
+- esbuild

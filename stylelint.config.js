@@ -6,8 +6,7 @@ module.exports = {
     rules: {
       "at-rule-no-unknown": [ true, {
         "ignoreAtRules": [
-          "extends",
-          "tailwind"
+          "extends"
         ]
       }],
       "block-no-empty": null

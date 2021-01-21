@@ -38,8 +38,15 @@
   <svelte:component this={component} {...props} />
 </main>
 
-<style>
-  header nav span {
-    margin-right: 2vmin;
+<style lang="scss">
+@import './styles/vars.scss';
+
+header {
+  nav {
+    span {
+      color: var(--default-color);
+      margin-right: 2vmin;
+    }
   }
+}
 </style>
