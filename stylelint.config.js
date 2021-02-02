@@ -2,7 +2,10 @@ module.exports = {
     plugins: [
       "stylelint-order"
     ],
-    extends: "stylelint-config-prettier",
+    extends: [
+      "stylelint-config-standard",
+      "stylelint-config-prettier"
+    ],
     rules: {
       "at-rule-no-unknown": [ true, {
         "ignoreAtRules": [

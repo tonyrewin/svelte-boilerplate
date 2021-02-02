@@ -1,5 +1,5 @@
 {
-  "name": "svelte-esbuild-boilerplate",
+  "name": "svelte-boilerplate",
   "version": "0.0.1",
   "devDependencies": {
     "@tsconfig/svelte": "^1.0.10",
@@ -9,8 +9,8 @@
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.10.0",
     "carbon-icons-svelte": "^10.23.0",
-    "chokidar": "^3.5.0",
     "cross-env": "7.0.3",
+    "derver": "^0.4.12",
     "esbuild": "^0.8.31",
     "esbuild-svelte": "^0.4.0",
     "eslint": "^7.0.0",
@@ -20,7 +20,6 @@
     "eslint-svelte3-preprocess": "^0.0.4",
     "husky": "^4.3.7",
     "lint-staged": "^10.5.3",
-    "live-dev-server": "^0.10.0",
     "prettier": "^2.2.1",
     "prettier-eslint": "^12.0.0",
     "prettier-plugin-svelte": "^2.0.3",
@@ -31,6 +30,7 @@
     "stylelint-order": "^4.1.0",
     "svelte": "^3.29.7",
     "svelte-check": "^1.1.26",
+    "svelte-pathfinder": "2.2.0",
     "svelte-preprocess": "^4.6.0",
     "svelte-preprocess-esbuild": "^1.0.4",
     "tslib": "^2.0.1",
@@ -39,17 +39,11 @@
   "scripts": {
     "format": "prettier --plugin=./node_modules/prettier-plugin-svelte --write src",
     "validate": "tsc --noEmit && svelte-check",
-    "fix": "eslint --fix src/**/*",
-    "lint": "eslint src/**/*",
+    "fix": "eslint --fix src/**/*.{ts,svelte}",
+    "lint": "eslint src/**/*.{ts,svelte}",
     "lint-staged": "lint-staged",
     "stylelint-check": "stylelint-config-prettier-check",
     "dev": "node esbuild.config.js",
     "build": "cross-env NODE_ENV=\"production\" npm run dev"
-  },
-  "browserslist": [
-    "last 2 versions"
-  ],
-  "dependencies": {
-    "navaid": "^1.2.0"
   }
 }
