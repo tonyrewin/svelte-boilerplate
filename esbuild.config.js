@@ -17,7 +17,7 @@ const options = {
   plugins: [
     svelte({ 
       compileOptions: { dev, css: false },
-      preprocessor: preprocess
+      preprocess
     })
   ],
   tsconfig: path.resolve(__dirname, "tsconfig.json")
