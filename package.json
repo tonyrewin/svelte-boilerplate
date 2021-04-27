@@ -45,5 +45,8 @@
     "stylelint-check": "stylelint-config-prettier-check",
     "dev": "node esbuild.config.js",
     "build": "cross-env NODE_ENV=\"production\" npm run dev"
+  },
+  "dependencies": {
+    "i18next": "^20.2.2"
   }
 }

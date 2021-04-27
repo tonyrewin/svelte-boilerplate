@@ -7,3 +7,4 @@
 - eslint - linter
 - esbuild - fast typescript compiler
 - svelte-pathfinder - store-based router
+- i18next - localization
