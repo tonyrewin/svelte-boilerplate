@@ -2,4 +2,3 @@ node_modules
 *.DS_Store
 pnpm-lock.yaml
 public/bundle.*
-.husky
