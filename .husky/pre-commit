@@ -12,4 +12,4 @@ function exit_proxy(){
 }
 trap exit_proxy EXIT
 
-lint-staged
+./node_modules/.bin/lint-staged
