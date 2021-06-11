@@ -17,6 +17,5 @@
         "parser": "typescript"
       }
     }
-  ],
-  "ignoreFiles": ["**/*.cjs"]
+  ]
 }

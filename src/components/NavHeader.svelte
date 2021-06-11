@@ -40,7 +40,7 @@
             <a
               class:selected={$path.toString() === p}
               href={p}
-              on:click={() => handle(p)}>{caption}</a
+              on:click={() => handle(p)}>{$t(caption)}</a
             >
           </div>
         </div>

@@ -2,7 +2,7 @@
   import { onDestroy, onMount } from 'svelte'
   import { path, click } from 'svelte-pathfinder'
   import NavHeader from './components/NavHeader.svelte'
-  import { initLocalizationContext, getLocalization } from './i18n'
+  import { initLocalizationContext } from './i18n'
   import Home from './pages/Home.svelte'
   import NotFound from './pages/NotFound.svelte'
   import Forum from './pages/Forum.svelte'
@@ -14,13 +14,12 @@
   let isAuthorized = false
 
   initLocalizationContext()
-  const { t } = getLocalization()
 
   const routes = {
-    '/': { component: Home, caption: $t('zine') },
-    '/feed': { component: Feed, caption: $t('feed') },
-    '/community': { component: Community, caption: $t('community') }, // shout id
-    '/forum': { component: Forum, caption: $t('forum') }, // your messages
+    '/': { component: Home, caption: 'zine' },
+    '/feed': { component: Feed, caption: 'feed' },
+    '/community': { component: Community, caption: 'community' }, // shout id
+    '/forum': { component: Forum, caption: 'forum' }, // your messages
   }
 
   $: component = routes[$path].component || NotFound
