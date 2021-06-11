@@ -3,3 +3,4 @@ node_modules
 pnpm-lock.yaml
 public/bundle.*
 database
+storybook-static

@@ -1,6 +1,6 @@
-import { preprocess } from '../svelte.config.cjs'
+const { preprocess } = require('../svelte.config.cjs')
 
-export default {
+module.exports = {
   "stories": [
     "./stories/**/*.stories.mdx",
     "./stories/**/*.stories.@(js|jsx|ts|tsx|svelte)"
