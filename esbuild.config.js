@@ -1,7 +1,7 @@
 import { build } from 'esbuild'
 import svelte from 'esbuild-svelte'
 import derverPkg from 'derver'
-import svelteCfg from './svelte.config'
+import svelteCfg from './svelte.config.cjs'
 
 const { preprocess } = svelteCfg
 const { derver } = derverPkg
