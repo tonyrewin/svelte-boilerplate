@@ -2,10 +2,14 @@
   import type { SvelteComponent } from 'svelte'
   import { getLocalization } from '../i18n'
   import { click, path } from 'svelte-pathfinder'
+  import Login20 from 'carbon-icons-svelte/lib/Login20'
+  import Edit20 from 'carbon-icons-svelte/lib/Edit20'
+  import Search20 from 'carbon-icons-svelte/lib/Search20'
+  import Email20 from 'carbon-icons-svelte/lib/Email20'
 
   interface Route {
     component: SvelteComponent
-    caption: string
+    caption?: string
   }
 
   export let routes: Route[]
@@ -25,6 +29,15 @@
       // TODO: implement search
     }
   }
+
+  const icons = {
+    login: Login20,
+    create: Edit20,
+    search: Search20,
+    messages: Email20,
+  }
+
+  const icon = (i: string) => icons[i]
 </script>
 
 <svelte:window on:click={click} />
@@ -34,17 +47,25 @@
   <div style="width: 195px;" />
   <div class="route">
     {#each Object.entries(routes) as [p, { caption }]}
-      <div>
-        <div class="routewrap">
-          <div class="routecell">
-            <a
-              class:selected={$path.toString() === p}
-              href={p}
-              on:click={() => handle(p)}>{$t(caption)}</a
-            >
+      {#if caption}
+        <div>
+          <div class="routewrap">
+            <div class="routecell">
+              <a
+                class:selected={$path.toString() === p}
+                href={p}
+                on:click={() => handle(p)}
+              >
+                {#if caption in icons}
+                  <svelte:component this={icon(caption)} />
+                {:else}
+                  {$t(caption)}
+                {/if}
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      {/if}
       <div style="width: 4vw;" />
     {/each}
   </div>

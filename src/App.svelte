@@ -8,10 +8,16 @@
   import Forum from './pages/Forum.svelte'
   import Community from './pages/Community.svelte'
   import Feed from './pages/Feed.svelte'
+  import Create from './pages/Create.svelte'
+  import Search from './pages/Search.svelte'
+  import Login from './pages/Login.svelte'
+  import Messages from './pages/Messages.svelte'
+  // import Forbidden from './pages/Forbidden.svelte'
+  import Article from './pages/Article.svelte'
 
   let component
   let props = {}
-  let isAuthorized = false
+  // let isAuthorized = false
 
   initLocalizationContext()
 
@@ -20,13 +26,16 @@
     '/feed': { component: Feed, caption: 'feed' },
     '/community': { component: Community, caption: 'community' }, // shout id
     '/forum': { component: Forum, caption: 'forum' }, // your messages
+    '/create': { component: Create, caption: 'create', auth: true },
+    '/messages': { component: Messages, caption: 'messages', auth: true },
+    '/search': { component: Search, caption: 'search' },
+    '/login': { component: Login, caption: 'login' },
+    '/id/:id': { component: Article },
   }
 
   $: component = routes[$path].component || NotFound
 
-  $: if ($path.toString() === '/admin' && !isAuthorized) {
-    $path = '/forbidden'
-  }
+  // TODO: auth ui
 
   onMount(() => {
     console.log('started!')
