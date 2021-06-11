@@ -1,30 +1,30 @@
 <script lang="ts">
-  import type { SvelteComponent } from "svelte";
-  import { getLocalization } from "../i18n";
-  import { click, path } from "svelte-pathfinder";
+  import type { SvelteComponent } from 'svelte'
+  import { getLocalization } from '../i18n'
+  import { click, path } from 'svelte-pathfinder'
 
   interface Route {
-    component: SvelteComponent;
-    caption: string;
+    component: SvelteComponent
+    caption: string
   }
 
-  export let routes: Route[];
+  export let routes: Route[]
 
-  const { t } = getLocalization();
+  const { t } = getLocalization()
 
   const handle = (action: string) => {
     switch (action) {
-      case "login":
+      case 'login':
         // TODO: implement login
-        break;
-      case "create":
+        break
+      case 'create':
         // TODO: implement create
-        break;
-      case "search":
+        break
+      case 'search':
       default:
       // TODO: implement search
     }
-  };
+  }
 </script>
 
 <svelte:window on:click={click} />

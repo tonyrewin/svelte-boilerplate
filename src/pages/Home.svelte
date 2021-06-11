@@ -1,5 +1,5 @@
 <script>
-  import NavCats from "../components/NavCategories.svelte";
+  import NavCats from '../components/NavCategories.svelte'
 </script>
 
 <NavCats />

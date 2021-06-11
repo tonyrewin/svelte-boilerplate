@@ -1,23 +1,23 @@
 <script>
   let links = [
-    ["статьи", "articles"],
-    ["литература", "books"],
-    ["галерея", "gallery"],
-    ["музыка", "music"],
-    ["видео", "video"],
-    ["общество", "society"],
-    ["культура", "culture"],
-    ["теории", "theories"],
-    ["спецпроекты", "special"],
-    ["обсуждения", "discussions"],
-  ];
+    ['статьи', 'articles'],
+    ['литература', 'books'],
+    ['галерея', 'gallery'],
+    ['музыка', 'music'],
+    ['видео', 'video'],
+    ['общество', 'society'],
+    ['культура', 'culture'],
+    ['теории', 'theories'],
+    ['спецпроекты', 'special'],
+    ['обсуждения', 'discussions'],
+  ]
 </script>
 
 <section>
   <div style="height: 60px;" />
   <div class="cats">
     {#each links as link}
-      <a href={"#" + link[1]}>{link[0]}</a>
+      <a href={'#' + link[1]}>{link[0]}</a>
       <div class="space" />
     {/each}
   </div>

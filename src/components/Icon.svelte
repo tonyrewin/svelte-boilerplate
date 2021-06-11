@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let icon: string;
+  export let icon: string
 </script>
 
 <img src={icon} alt="icon" />

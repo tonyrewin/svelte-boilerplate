@@ -1,9 +1,10 @@
 <script lang="ts">
-  import Icon from "./Icon.svelte";
-  export let icon: string;
-  export let title: string;
-  export let action: Function;
-  export let isActive: Function;
+  /* eslint-disable @typescript-eslint/ban-types */
+  import Icon from './Icon.svelte'
+  export let icon: string
+  export let title: string
+  export let action: Function
+  export let isActive: Function
 </script>
 
 <button
@@ -26,6 +27,7 @@
     border-radius: 0.4rem;
     padding: 0.25rem;
     margin-right: 0.25rem;
+
     &.is-active,
     &:hover {
       color: #fff;
