@@ -10,7 +10,7 @@
     "project": ["./tsconfig.json"],
     "extraFileExtensions": [".svelte"],
     "createDefaultProgram": true,
-    "ecmaVersion": 2020,
+    "ecmaVersion": 2021,
     "sourceType": "module"
   },
   "extends": [

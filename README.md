@@ -6,3 +6,11 @@
 - i18next - localization, reimplementing https://github.com/sveltejs/kit/issues/553#issuecomment-816310156
 
 No runtime dependencies was used in package.json
+
+# How to develop
+
+```sh
+pnpm i
+pnpm dev
+```
+

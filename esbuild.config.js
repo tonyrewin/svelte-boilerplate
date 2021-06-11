@@ -19,10 +19,8 @@ const options = {
     svelte({
       compileOptions: { dev, css: false},
       preprocess
-    }),
-    // postCSSPlugin({ plugins: [tailwind] })
-  ],
-  // tsconfig: path.resolve(__dirname, "tsconfig.json")
+    })
+  ]
 }
 
 if(!dev) {

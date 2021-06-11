@@ -1,0 +1,27 @@
+env:
+  global:
+    # - CC_TEST_REPORTER_ID=c0fb89be3f07eed029f25669f613a62806b4f9ec7e970832d359e59b1e6aa176
+language: node_js
+node_js: node
+addons:
+  apt:
+    packages:
+    # -
+cache:
+  # Caches $HOME/.npm when npm ci is default script command
+  # Caches node_modules in all other cases
+  npm: true
+  directories:
+    # we also need to cache folder with Cypress binary
+    # - ~/.cache
+before_script:
+  # - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  # - chmod +x ./cc-test-reporter
+  # - ./cc-test-reporter before-build
+script:
+  - npm run lint
+  - npm run validate
+  - npm run build
+  # - npm run test:e2e:ci
+after_script:
+  # - ./cc-test-reporter after-build -t lcov --exit-code $TRAVIS_TEST_RESULT
