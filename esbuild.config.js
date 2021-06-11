@@ -1,26 +1,28 @@
-const { build } = require("esbuild")
-const svelte = require("esbuild-svelte")
-const { derver } = require('derver')
-const path = require("path")
-const { preprocess } = require("./svelte.config")
+import { build } from 'esbuild'
+import svelte from 'esbuild-svelte'
+import derverPkg from 'derver'
+import svelteCfg from './svelte.config'
 
-const dev = process.env.NODE_ENV !== "production"
+const { preprocess } = svelteCfg
+const { derver } = derverPkg
+const dev = process.env.NODE_ENV == 'development'
 const port = 5000
 const dir = 'public'
 
 const options = {
-  entryPoints: [path.resolve(__dirname, "src/index.ts")],
+  entryPoints: ["src/index.ts"],
   bundle: true,
   color: true,
   incremental: dev,
   outfile: dir + '/bundle.js',
   plugins: [
-    svelte({ 
-      compileOptions: { dev, css: false },
+    svelte({
+      compileOptions: { dev, css: false},
       preprocess
-    })
+    }),
+    // postCSSPlugin({ plugins: [tailwind] })
   ],
-  tsconfig: path.resolve(__dirname, "tsconfig.json")
+  // tsconfig: path.resolve(__dirname, "tsconfig.json")
 }
 
 if(!dev) {
@@ -39,15 +41,15 @@ build(options)
         dir, 
         port,
         watch: [ dir, 'src' ],
-        onwatch: async (lr,item) => {
-            if (item == 'src') {
-                lr.prevent()
-                try {
-                    await builder.rebuild()
-                } catch(err) {
-                    lr.error(err.message,'Svelte compile error')
-                }
+        onwatch: async (lr, item) => {
+          if (item == 'src') {
+            lr.prevent()
+            try {
+                await builder.rebuild()
+            } catch(err) {
+                lr.error(err.message,'Svelte compile error')
             }
+          }
         }
       })
     } else {

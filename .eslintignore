@@ -1,1 +1,3 @@
 public/bundle.*
+.eslintrc.js
+lint-staged.config.js

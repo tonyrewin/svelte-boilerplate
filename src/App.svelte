@@ -1,41 +1,47 @@
 <script>
-  import { onDestroy, onMount } from 'svelte'
-  import { path, click } from 'svelte-pathfinder'
-  import Nav from './components/Nav.svelte'
-  import { initLocalizationContext } from './i18n'
-  import Home from './pages/Home.svelte'
-  import NotFound from './pages/NotFound.svelte'
-  import Userlist from './pages/Userlist.svelte'
+  import { onDestroy, onMount } from "svelte";
+  import { path, click } from "svelte-pathfinder";
+  import NavHeader from "./components/NavHeader.svelte";
+  import { initLocalizationContext, getLocalization } from "./i18n";
+  import Home from "./pages/Home.svelte";
+  import NotFound from "./pages/NotFound.svelte";
+  import Forum from "./pages/Forum.svelte";
+  import Community from "./pages/Community.svelte";
+  import Feed from "./pages/Feed.svelte";
 
-  let component
-  let props = {}
-  let isAuthorized = false
+  let component;
+  let props = {};
+  let isAuthorized = false;
+
+  initLocalizationContext();
+  const { t } = getLocalization();
+
   const routes = {
-    '/': Home,
-    '/users': Userlist,
-  }
+    "/": { component: Home, caption: $t("zine") },
+    "/feed": { component: Feed, caption: $t("feed") },
+    "/community": { component: Community, caption: $t("community") }, // shout id
+    "/forum": { component: Forum, caption: $t("forum") }, // your messages
+  };
 
-  initLocalizationContext()
+  $: component = routes[$path].component || NotFound;
 
-  $: component = routes[$path] || NotFound
-
-  $: if ($path.toString() === '/admin' && !isAuthorized) {
-    $path = '/forbidden'
+  $: if ($path.toString() === "/admin" && !isAuthorized) {
+    $path = "/forbidden";
   }
 
   onMount(() => {
-    console.log('started!')
-  })
+    console.log("started!");
+  });
 
   onDestroy(() => {
-    console.log('bye!')
-  })
+    console.log("bye!");
+  });
 </script>
 
 <svelte:window on:click={click} />
-<header><Nav {routes} /></header>
+<header><NavHeader {routes} /></header>
 <main><svelte:component this={component} {...props} /></main>
 
-<style lang="scss">
-  @import './styles/vars.scss';
+<style lang="scss" global>
+  @import "styles/init.scss";
 </style>

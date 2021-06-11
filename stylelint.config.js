@@ -1,17 +1,19 @@
-module.exports = {
+export default {
     plugins: [
       "stylelint-order"
     ],
     extends: [
-      "stylelint-config-standard",
+      "stylelint-config-recommended",
       "stylelint-config-prettier"
     ],
     rules: {
       "at-rule-no-unknown": [ true, {
         "ignoreAtRules": [
-          "extends"
+          "extends",
+          "tailwind"
         ]
       }],
-      "block-no-empty": null
+      "block-no-empty": null,
+      "unit-whitelist": ["em", "rem", "s"]
     }
   }

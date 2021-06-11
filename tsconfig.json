@@ -10,5 +10,5 @@
   },
   "extends": "./node_modules/@tsconfig/svelte/tsconfig.json",
   "include": ["src/**/*"],
-  "exclude": ["node_modules/*", "public/*"]
+  "exclude": ["node_modules/*", "public/*", "server.js"]
 }

@@ -1,5 +1,5 @@
-const eslintSveltePreprocess = require('eslint-svelte3-preprocess')
-const svelteConfig = require('./svelte.config')
+// import eslintSveltePreprocess from 'eslint-svelte3-preprocess'
+const svelteConfig = require('./svelte.config.cjs')
 
 module.exports = {
   root: true,
@@ -15,7 +15,11 @@ module.exports = {
     sourceType: 'module',
   },
   extends: ['eslint:recommended'],
-  plugins: ['svelte3', '@typescript-eslint', 'prettier'],
+  plugins: [
+    'svelte3',
+    'prettier',
+    '@typescript-eslint'
+  ],
   overrides: [
     {
       files: ['*.svelte'],
@@ -25,8 +29,7 @@ module.exports = {
       files: ['*.ts'],
       extends: [
         'plugin:@typescript-eslint/recommended',
-        'plugin:prettier/recommended',
-        'prettier/@typescript-eslint',
+        'plugin:prettier/recommended'
       ],
     },
     {
@@ -37,7 +40,7 @@ module.exports = {
   },
   ],
   settings: {
-    'svelte3/preprocess': eslintSveltePreprocess(svelteConfig.preprocess),
+    'svelte3/preprocess': svelteConfig.preprocess // eslintSveltePreprocess(svelteConfig.preprocess),
   },
   rules: {
     "no-unused-vars": "off"
