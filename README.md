@@ -14,3 +14,6 @@ pnpm i
 pnpm dev
 ```
 
+# Server
+
+A simple websocket server with RocksDB for tiptap.
