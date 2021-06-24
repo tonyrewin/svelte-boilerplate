@@ -1,6 +1,6 @@
 {
-  "name": "svelte-boilerplate",
-  "version": "0.0.1",
+  "name": "discoursio-web",
+  "version": "0.0.2",
   "devDependencies": {
     "@tsconfig/svelte": "^2.0.0",
     "@types/marked": "^2.0.3",
