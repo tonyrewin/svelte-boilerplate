@@ -17,7 +17,7 @@
 
   initLocalizationContext()
 
-  $: component = routes[$path] || NotFound
+  $: component = routes[$path.toString()] || NotFound
 
   $: if ($path.toString() === '/admin' && !isAuthorized) {
     $path = '/forbidden'
@@ -37,5 +37,5 @@
 <main><svelte:component this={component} {...props} /></main>
 
 <style lang="scss">
-  @import './styles/vars.scss';
+  @import './styles/init.scss';
 </style>

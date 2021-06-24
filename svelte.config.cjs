@@ -1,4 +1,4 @@
-const { globalStyle, scss } = require("svelte-preprocess")
+const { globalStyle, scss } = require('svelte-preprocess')
 const { typescript } = require('svelte-preprocess-esbuild')
 
 module.exports = { 
